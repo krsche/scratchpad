@@ -1,5 +1,5 @@
 cluster:
-	kind create cluster --name helm --image kindest/node:v1.21.1
+	kind create cluster --name demo --image kindest/node:v1.21.1
 
 deployment-demo:
 	kubectl apply -f deployment_demo.yml

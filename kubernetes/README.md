@@ -52,5 +52,5 @@ mv ./kind /usr/bin/kind
 Create a cluster and deploy one app:  
 ```bash
 # find tag of latest version here: https://hub.docker.com/r/kindest/node/tags?page=1&ordering=last_updated
-kind create cluster --name helm --image kindest/node:v1.21.1
+kind create cluster --name demo --image kindest/node:v1.21.1
 ```
