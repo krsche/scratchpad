@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-deployment
+  labels:
+    app: demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: demo
+  template:
+    metadata:
+      labels:
+        app: demo
+    spec:
+      containers:
+      - name: alpine
+        image: alpine:3.13
+        command: ["/bin/sh", "-c"]
+        args:
+        - "while true; do echo -e \"Current datetime: $(date)\"; sleep 1s; done"
