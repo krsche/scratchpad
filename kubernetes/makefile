@@ -1,13 +1,8 @@
-build:
-	docker build -t scratchpad-kubernetes-demo:latest .
-run:
-	docker run --rm scratchpad-kubernetes-demo:latest
-
 cluster:
-	kind create
+	kind create cluster --name helm --image kindest/node:v1.21.1
 
 deployment-demo:
-	kubectl apply -f minimal_deployment_demo.yml
+	kubectl apply -f deployment_demo.yml
 
 deployment-nginx:	
-	kubectl apply -f minimal_deployment_nginx.yml
+	kubectl apply -f deployment_nginx.yml
