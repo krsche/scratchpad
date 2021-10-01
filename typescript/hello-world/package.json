@@ -1,0 +1,19 @@
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "description": "**Prerequisites:**   - `npm` and `node` is available on the PATH",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -r ./dist && tsc",
+    "start": "npm run build && node dist/index.js",
+    "dev": "nodemon"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^16.10.2",
+    "nodemon": "^2.0.13",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  }
+}
