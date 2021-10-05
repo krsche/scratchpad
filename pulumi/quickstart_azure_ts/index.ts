@@ -3,7 +3,7 @@ import * as resources from "@pulumi/azure-native/resources";
 import * as storage from "@pulumi/azure-native/storage";
 
 // Create an Azure Resource Group
-const rg = new resources.ResourceGroup("pulumiResourceGroup");
+const rg = new resources.ResourceGroup("rg-" + pulumi.getStack() );
 
 // Create an Azure resource (Storage Account)
 const sa = new storage.StorageAccount("krschepulumisa", {
@@ -15,9 +15,9 @@ const sa = new storage.StorageAccount("krschepulumisa", {
 });
 
 // Export the primary key of the Storage Account
-const storageAccountKeys = pulumi.all([rg.name, sa.name]).apply(([resourceGroupName, accountName]) =>
-storage.listStorageAccountKeys({ resourceGroupName, accountName }));
-export const primaryStorageKey = storageAccountKeys.keys[0].value;
+// const storageAccountKeys = pulumi.all([rg.name, sa.name]).apply(([resourceGroupName, accountName]) =>
+// storage.listStorageAccountKeys({ resourceGroupName, accountName }));
+// export const primaryStorageKey = storageAccountKeys.keys[0].value;
 
 // Enable Website and supply index.html
 const saWebsite = new storage.StorageAccountStaticWebsite("sawebsite", {
