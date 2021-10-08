@@ -8,7 +8,6 @@ This guide assumes the following tools are available. Install instructions can b
 - kind
 
 
-
 ## Getting Started
 Create a cluster and deploy one app:  
 ```bash
