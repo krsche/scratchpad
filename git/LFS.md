@@ -1,5 +1,6 @@
 # Git LFS
 
+## Setup
 ```bash
 # Try this
 git lfs install
@@ -16,4 +17,13 @@ git lfs track "*.png"
 
 # add auto-create/updated .gitattributes file
 git add .gitattributes
+```
+
+## Daily
+```bash
+# Check if files will be committed properly
+git lfs status
+
+# List all lfs files in repo
+git lfs ls-files
 ```
