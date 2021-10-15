@@ -1,0 +1,15 @@
+FROM ubuntu:focal
+
+ARG STLINK_LINK=https://github.com/stlink-org/stlink/releases/download/v1.7.0/stlink_1.7.0-1_amd64.deb
+
+
+# basics
+RUN apt-get update && apt-get install -y \
+    wget \
+    make \
+    cmake
+
+RUN apt-get install -y build-essential
+RUN export DEBIAN_FRONTEND=noninteractive && apt-get install -q -y \ 
+    gcc-arm-none-eabi
+
