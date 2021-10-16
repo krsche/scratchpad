@@ -1,0 +1,3 @@
+name: quickstart-git-envs_azure_ts
+runtime: nodejs
+description: A minimal Azure Native TypeScript Pulumi program creating stacks based on git branches / PRs

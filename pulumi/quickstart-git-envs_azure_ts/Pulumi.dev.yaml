@@ -1,0 +1,3 @@
+config:
+  azure-native:subscriptionId: 73c0cdbd-d7e9-412f-8132-dbd66814b6c0
+  azure-native:tenantId: dd77ba1b-244d-432a-960d-8ed61723babd
