@@ -3,5 +3,11 @@
 *
 # Unignore all with extensions
 !*.*
+# Unignore the following files without extension
+!*file
+
 # Unignore all dirs
 !*/
+# Ignore the following dirs
+**/bin
+**/obj
