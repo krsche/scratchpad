@@ -11,3 +11,4 @@
 # Ignore the following dirs
 **/bin
 **/obj
+**/build
