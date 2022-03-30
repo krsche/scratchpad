@@ -1,0 +1,26 @@
+<svg id="svg-compo-diff" xmlns="http://www.w3.org/2000/svg" style="display: inline; width: 1920px; min-width: inherit; max-width: inherit; height: 1080px; min-height: inherit; max-height: inherit;" version="1.1">
+    <g>
+        <svg id="compo1">
+            <defs>
+                <filter id="f1">
+                    <feColorMatrix id="c1" type="matrix" values="1   0   0   0   0
+                        0   1   0   1   0
+                        0   0   1   1   0
+                        0   0   0   1   0" />
+                </filter>
+            </defs>
+            <image x="0" y="0" height="100%" width="100%" filter="url(#f1)" href="751bbe4/test-00-F_Cu.svg" />
+        </svg>
+        <svg id="compo2">
+            <defs>
+                <filter id="f2">
+                    <feColorMatrix id="c2" type="matrix" values="1   0   0   1   0
+                        0   1   0   0   0
+                        0   0   1   0   0
+                        0   0   0  .5   0" />
+                </filter>
+            </defs>
+            <image x="0" y="0" height="100%" width="100%" filter="url(#f2)" href="c0a3a18/test-00-F_Cu.svg" />
+        </svg>
+    </g>
+</svg>
