@@ -1,3 +1,8 @@
+# --- Line Endings ---
+* text eol=auto
+*.sh text eol=lf
+.bash* text eol=lf
+
 # --- GIT LFS ---
 # Archives
 *.7z filter=lfs diff=lfs merge=lfs -text
