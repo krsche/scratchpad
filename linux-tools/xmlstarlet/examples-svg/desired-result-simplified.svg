@@ -1,0 +1,40 @@
+<svg id="svg-compo-diff" xmlns="http://www.w3.org/2000/svg"
+    style="display: inline; width: 1920px; min-width: inherit; max-width: inherit; height: 1080px; min-height: inherit; max-height: inherit;"
+    version="1.1">
+    <g>
+        <svg id="compo1">
+            <defs>
+                <filter id="f1">
+                    <feColorMatrix id="c1" type="matrix" values="1   0   0   0   0
+                        0   1   0   1   0
+                        0   0   1   1   0
+                        0   0   0   1   0" />
+                </filter>
+            </defs>
+            <g x="0" y="0" height="100%" width="100%" filter="url(#f1)">
+                <svg width="29.700220cm" height="21.000720cm" viewBox="0 0 297002200 210007200">
+                    <g style="fill:#000000; fill-opacity:1.000000;stroke:#000000; stroke-opacity:1.000000;
+stroke-linecap:round; stroke-linejoin:round;" transform="translate(0 0) scale(1 1)"></g>
+                    <!-- ... -->
+                </svg>
+            </g>
+        </svg>
+        <svg id="compo2">
+            <defs>
+                <filter id="f2">
+                    <feColorMatrix id="c2" type="matrix" values="1   0   0   1   0
+                        0   1   0   0   0
+                        0   0   1   0   0
+                        0   0   0  .5   0" />
+                </filter>
+            </defs>
+            <g x="0" y="0" height="100%" width="100%" filter="url(#f2)">
+                <svg width="29.700220cm" height="21.000720cm" viewBox="0 0 297002200 210007200">
+                    <g style="fill:#000000; fill-opacity:1.000000;stroke:#000000; stroke-opacity:1.000000;
+stroke-linecap:round; stroke-linejoin:round;" transform="translate(0 0) scale(1 1)"></g>
+                    <!-- ... -->
+                </svg>
+            </g>
+        </svg>
+    </g>
+</svg>
