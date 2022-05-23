@@ -13,7 +13,6 @@ __Table of Contents:__
 - [5. Special Drivers](#5-special-drivers)
   - [5.1. Peak PCAN](#51-peak-pcan)
 
-
 ## 1. Installation
 
 ```bash
