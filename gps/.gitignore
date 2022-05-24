@@ -1,0 +1,3 @@
+# don't accidentally commit gps traces, for examples to use w/ the tool look on the interwebs
+*.csv
+datasets/
