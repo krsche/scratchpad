@@ -8,6 +8,7 @@ __Table of Contents:__
 
 - [1. Installation](#1-installation)
 - [2. Setup](#2-setup)
+  - [udev Rule (Auto bringup)](#udev-rule-auto-bringup)
 - [3. Capture & Replay](#3-capture--replay)
 - [4. Analysis & Tools](#4-analysis--tools)
 - [5. Special Drivers](#5-special-drivers)
@@ -50,6 +51,15 @@ candump can0
 
 # send
 cansend can0 18F#1234567890ABCDEF
+```
+
+### udev Rule (Auto bringup)
+
+To automatically bring up a CAN interface a udev rule can be used.  
+Create a file `80-socketcan.rules` under `/etc/udev/rules.d` and add the following content:  
+
+```
+ACTION=="add", SUBSYSTEM=="net", ENV{INTERFACE}=="can*", RUN+="/usr/bin/ip link set $name txqueuelen 10000", RUN+="/usr/bin/ip link set $name type can bitrate 500000", RUN+="/usr/bin/ip link set up $name"
 ```
 
 ## 3. Capture & Replay
