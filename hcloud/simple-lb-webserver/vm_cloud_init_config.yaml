@@ -1,0 +1,11 @@
+#cloud-config
+
+packages:
+  - apache2
+  - curl
+package_update: true
+package_upgrade: true
+
+runcmd:
+  - echo "<h1>Hello World from $(hostname -f)</h1>" > /var/www/html/index.html
+  - service apache2 start
