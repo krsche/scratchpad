@@ -1,0 +1,50 @@
+# general
+.DS_Store
+browse.vc.db*
+*.pem
+/build
+/bin
+/out/
+/coverage
+.env*.local
+/install
+/log
+/bags
+
+# javascript
+node_modules
+/.pnp
+.pnp.js
+/.next/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.tsbuildinfo
+
+# terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfplan.*
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# embedded
+.vscode/.cortex-debug.*
+.mxproject
+
+# python / ros
+frames_*.gv
+frames_*.pdf
+__pycache__
+*.pyc
+
+# kicad
+*.kicad_prl
+*-backups/
+fp-info-cache
