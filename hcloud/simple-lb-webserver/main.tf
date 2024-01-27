@@ -22,6 +22,9 @@ locals {
 
 # ---
 
+# Network
+# -----------------------------------------------------------------------------
+
 resource "hcloud_network" "network" {
   name     = "network"
   ip_range = "10.0.0.0/16"
@@ -34,21 +37,33 @@ resource "hcloud_network_subnet" "network-subnet" {
   ip_range     = "10.0.1.0/24"
 }
 
+# Server
+# -----------------------------------------------------------------------------
+
+# The firewall here is used to block incoming traffic into the public IP of the below servers.
+# If not rules are specified all incoming traffic is blocked by default and all outgoing traffic is allowed.
+# The public IP of the servers is required to fetch apt packages (apache2) and setting up a router server would be
+# overkill for this example.
+resource "hcloud_firewall" "firewall" {
+  name = "egress-firewall"
+}
+
 resource "hcloud_server" "server" {
   count = local.server_count
 
-  name        = "server-${count.index}"
-  server_type = "cx11"
-  image       = "ubuntu-22.04"
-  location    = local.location
-  user_data   = file("${path.module}/vm_cloud_init_config.yaml")
+  name         = "server-${count.index}"
+  server_type  = "cx11"
+  image        = "ubuntu-22.04"
+  location     = local.location
+  user_data    = file("${path.module}/vm_cloud_init_config.yaml")
+  firewall_ids = [hcloud_firewall.firewall.id]
 
   network {
     network_id = hcloud_network.network.id
     ip         = "10.0.1.${10 + count.index}"
   }
   public_net {
-    ipv4_enabled = true # needed for apt to fetch packages and updates
+    ipv4_enabled = true # needed for apt to fetch packages and updates, also see firewall block
     ipv6_enabled = false
   }
 
@@ -60,6 +75,10 @@ resource "hcloud_server" "server" {
     hcloud_network_subnet.network-subnet
   ]
 }
+
+
+# Load Balancer
+# -----------------------------------------------------------------------------
 
 resource "hcloud_load_balancer" "load_balancer" {
   name               = "my-load-balancer"
@@ -91,18 +110,4 @@ resource "hcloud_load_balancer_service" "load_balancer_service" {
   http {
     sticky_sessions = false # we don't want that here otherwise we would not get responses by different servers
   }
-
-  #   health_check {
-  #     protocol = "http"
-  #     port     = 80
-  #     interval = 10
-  #     timeout  = 5
-
-  #     http {
-  #       path         = "/"
-  #       response     = "OK"
-  #       tls          = false
-  #       status_codes = ["200"]
-  #     }
-  #   }
 }
