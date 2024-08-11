@@ -1,0 +1,3 @@
+[submodule "stm32/lib/STM32CubeWB"]
+	path = stm32/lib/STM32CubeWB
+	url = https://github.com/STMicroelectronics/STM32CubeWB.git
