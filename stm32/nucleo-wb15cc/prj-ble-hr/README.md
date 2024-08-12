@@ -22,7 +22,7 @@ make
 __Flash__:
 
 ```bash
-openocd -f ./openocd_st_nucleo_wb15.cfg -c "program ./prj-ble-hr.elf verify reset exit"
+openocd -f ./openocd_st_nucleo_wb15.cfg -c "program ./build/prj-ble-hr.elf verify reset exit"
 ```
 
 __Debug__:
