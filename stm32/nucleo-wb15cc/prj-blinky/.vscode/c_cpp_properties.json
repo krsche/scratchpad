@@ -1,0 +1,27 @@
+{
+  "configurations": [
+    {
+      "name": "STM32",
+      "includePath": ["${workspaceFolder}/**"],
+      "defines": [
+        "_DEBUG",
+        "UNICODE",
+        "_UNICODE",
+        "USE_HAL_DRIVER",
+        "STM32L431xx"
+      ],
+      "intelliSenseMode": "gcc-arm",
+      "compilerPath": "${env:ARMGCC_DIR}/arm-none-eabi-gcc",
+      // "windowsSdkVersion": "10.0.15063.0",
+      "cStandard": "c17",
+      "cppStandard": "c++17",
+      "compilerArgs": [
+        "-mcpu=cortex-m4",
+        "-mfpu=fpv4-sp-d16",
+        "-mfloat-abi=hard",
+        "-mthumb"
+      ]
+    }
+  ],
+  "version": 4
+}

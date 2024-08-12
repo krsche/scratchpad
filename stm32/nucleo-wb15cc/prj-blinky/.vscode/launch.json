@@ -1,0 +1,45 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "cortex-debug",
+      "name": "Cortex Debug", // Name of configuration; appears in the launch configuration dropdown menu.
+      "cwd": "${workspaceRoot}", // Path of project
+      //"preLaunchTask": "Flash (make flash)",                      // Task to run before debug session starts. Specify a task defined in tasks.json.
+      // "preLaunchTask": "cmake - build",                           // Task to run before debug session starts. Specify a task defined in tasks.json.
+      "executable": "./build/prj-blinky.elf", // Path of executable
+      "request": "launch", // Request type of configuration. Can be “launch” or “attach”.
+      "runToMain": true, // If enabled the debugger will run until it the start of the main function.
+      "servertype": "openocd", // GDB Server type - supported types are jlink, openocd, pyocd, pe and stutil
+      "interface": "swd", // Debug Interface type to use for connections (defaults to SWD) - Used for J-Link and BMP probes.
+      "device": "STM32WB15CCUx", // Target Device Identifier
+      "configFiles": ["./openocd_st_nucleo_wb15.cfg"],
+      //   "openOCDLaunchCommands": [
+      //     "reset_config srst_only srst_nogate connect_assert_srst"
+      //   ],
+      "svdFile": "./STM32WB15_CM4.svd", // Path to an SVD file describing the peripherals of the microcontroller; if not supplied then one may be selected based upon the ‘device’ entered. This may be automatically loaded depending on the "device"
+      "swoConfig": {
+        // SWO/ITM configuration.
+        "enabled": true, // Enable SWO decoding.
+        "cpuFrequency": 32000000, // Target CPU frequency in Hz.
+        "swoFrequency": 16000000, // SWO frequency in Hz. STLink V3 supports up to 16MHz
+        "source": "probe", // Source for SWO data.
+
+        "decoders": [
+          // SWO Decoder Configuration
+          {
+            "port": 0, // ITM Port Number
+            "type": "console", // Output type selection
+            "label": "SWO Output (ITM)", // A label for the output window.
+            "encoding": "ascii",
+            "timestamp": true,
+            "showOnStartup": true
+          }
+        ]
+      }
+    }
+  ]
+}

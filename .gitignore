@@ -37,6 +37,7 @@ override.tf.json
 # embedded
 .vscode/.cortex-debug.*
 .mxproject
+build/
 
 # python / ros
 frames_*.gv
