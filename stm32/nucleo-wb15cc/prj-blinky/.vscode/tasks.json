@@ -1,0 +1,57 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build",
+      "type": "shell",
+      "command": "cmake -S ${workspaceFolder} -B ${workspaceFolder}/build && cmake --build ${workspaceFolder}/build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Flash",
+      "type": "shell",
+      "command": "openocd -f ${workspaceFolder}/openocd_st_nucleo_wb15.cfg -c 'program ${workspaceFolder}/build/prj-blinky.elf verify reset exit'",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "Remove folder: build",
+      "type": "shell",
+      "command": "rm -r ${workspaceFolder}/build"
+    },
+    {
+      "label": "Build (clean)",
+      "dependsOn": ["Remove folder: build", "Build"],
+      "dependsOrder": "sequence",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "Build and Flash",
+      "dependsOn": ["Build", "Flash"],
+      "dependsOrder": "sequence",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "Build and Flash (clean)",
+      "dependsOn": ["Remove folder: build", "Build", "Flash"],
+      "dependsOrder": "sequence",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    }
+  ]
+}

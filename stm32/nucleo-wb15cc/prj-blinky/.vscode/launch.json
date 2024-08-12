@@ -9,7 +9,7 @@
       "name": "Cortex Debug", // Name of configuration; appears in the launch configuration dropdown menu.
       "cwd": "${workspaceRoot}", // Path of project
       //"preLaunchTask": "Flash (make flash)",                      // Task to run before debug session starts. Specify a task defined in tasks.json.
-      // "preLaunchTask": "cmake - build",                           // Task to run before debug session starts. Specify a task defined in tasks.json.
+      "preLaunchTask": "Build and Flash", // Task to run before debug session starts. Specify a task defined in tasks.json.
       "executable": "./build/prj-blinky.elf", // Path of executable
       "request": "launch", // Request type of configuration. Can be “launch” or “attach”.
       "runToMain": true, // If enabled the debugger will run until it the start of the main function.

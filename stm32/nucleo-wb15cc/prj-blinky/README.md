@@ -109,8 +109,35 @@ Resources required:
 
 7. Try uploading the compiled firmware by running `openocd -f ./openocd_st_nucleo_wb15.cfg -c "program ./build/prj-blinky.elf verify reset exit"` from the projects root directory
 
-8. Press `F5` to launch the VSCode Debugger (you don't need to manually flash the firmware before you do this)
+8. Press `F5` to launch the VSCode Debugger
+
+> [!tip] Note the tasks.json file
+> This defines build, flash, and respective clean tasks. The `launch.json` also refers to one of these tasks in the line
+>
+> - `"preLaunchTask": "Build and Flash",`
 
 ### 3. Write the actual Blinky Application Code
 
+In the `while(1)` loop of the `main()` function in `main.c`, add the following lines.
 
+```c
+HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin);
+HAL_Delay(333);
+HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin);
+HAL_Delay(333);
+HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+HAL_Delay(333);
+```
+
+Now press `F5` or run the task *"Build and Flash"* to see the LEDs blinking!
+
+---
+> [!tip] Running Tasks
+> To easily run tasks, use the VSCode Command Prompt by pressing `CMD + Shift + P` (on Mac), or `Ctrl + Shift + P` (on Windows),
+> then type in `Tasks: Run Task` press Enter and select the task you want to run from the list!
+
+---
+> [!note] Tasks & CMake Extension
+> The tasks.json is using shell commands, as I have found that using the CMake VSCode extension to not be too reliable.
+>
+> The extension brings some benefits like easily choosing between CMake profiles, but this I don't need.
