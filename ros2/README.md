@@ -41,3 +41,16 @@ cd ..
 colcon build --packages-select hello-world-cpp
 colcon build --packages-select hello-world-python
 ```
+
+## URDF
+
+### What is urdf and how does it work
+
+URDF describes a robot, the parts that don't change. E.g. joints, shape, where sensors are, etc.
+
+### Tutorial
+- [Building a Visual Robot Model with URDF from Scratch](https://docs.ros.org/en/humble/Tutorials/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.html)
+
+```bash
+sudo apt install ros-humble-urdf-tutorial
+```
