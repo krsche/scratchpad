@@ -1,0 +1,9 @@
+FROM golang:1.19-alpine as build
+RUN apk add --no-cache git
+WORKDIR /src 
+COPY publisher.go /src 
+RUN go build publisher.go
+
+FROM alpine
+COPY --from=build /src/publisher /app/publisher
+CMD [ "/app/publisher" ]
