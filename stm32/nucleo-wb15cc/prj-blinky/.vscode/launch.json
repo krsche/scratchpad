@@ -5,8 +5,8 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "cortex-debug",
       "name": "Cortex Debug", // Name of configuration; appears in the launch configuration dropdown menu.
+      "type": "cortex-debug",
       "cwd": "${workspaceRoot}", // Path of project
       //"preLaunchTask": "Flash (make flash)",                      // Task to run before debug session starts. Specify a task defined in tasks.json.
       "preLaunchTask": "Build and Flash", // Task to run before debug session starts. Specify a task defined in tasks.json.

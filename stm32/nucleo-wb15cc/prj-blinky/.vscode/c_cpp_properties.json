@@ -5,22 +5,30 @@
       "includePath": ["${workspaceFolder}/**"],
       "defines": [
         "_DEBUG",
+        "DEBUG",
         "UNICODE",
         "_UNICODE",
         "USE_HAL_DRIVER",
-        "STM32L431xx"
+        "STM32WB15xx",
+        "__CC_ARM"
       ],
+      "browse": {
+        "path": ["${workspaceFolder}"],
+        "limitSymbolsToIncludedHeaders": false,
+        "databaseFilename": "${workspaceFolder}/.vscode/browse.vc.db"
+      },
       "intelliSenseMode": "gcc-arm",
       "compilerPath": "${env:ARMGCC_DIR}/arm-none-eabi-gcc",
       // "windowsSdkVersion": "10.0.15063.0",
-      "cStandard": "c17",
-      "cppStandard": "c++17",
+      "cStandard": "c11",
+      "cppStandard": "c++11",
       "compilerArgs": [
         "-mcpu=cortex-m4",
         "-mfpu=fpv4-sp-d16",
         "-mfloat-abi=hard",
         "-mthumb"
-      ]
+      ],
+      "configurationProvider": "ms-vscode.cpptools"
     }
   ],
   "version": 4
