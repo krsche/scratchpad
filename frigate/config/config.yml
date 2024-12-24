@@ -1,0 +1,40 @@
+mqtt:
+  enabled: False
+
+ffmpeg:
+  hwaccel_args: preset-vaapi
+
+record:
+  enabled: True
+  retain:
+    days: 7
+    mode: motion
+  events:
+    retain:
+      default: 30
+      mode: motion
+
+snapshots:
+  enabled: True
+  retain:
+    default: 30
+
+go2rtc:
+  streams:
+    e1:
+      - "ffmpeg:http://10.0.166.10/flv?port=1935&app=bcs&stream=channel0_main.bcs&user=test&password=test1234#video=copy#audio=copy#audio=opus"
+    e1_sub:
+      - "ffmpeg:http://10.0.166.10/flv?port=1935&app=bcs&stream=channel0_ext.bcs&user=test&password=test1234"
+
+cameras:
+  e1:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/e1
+          input_args: preset-rtsp-restream
+          roles:
+            - record
+        - path: rtsp://127.0.0.1:8554/e1_sub
+          input_args: preset-rtsp-restream
+          roles:
+            - detect

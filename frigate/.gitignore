@@ -1,0 +1,7 @@
+.timeline
+.vacuum
+frigate.db
+model_cache
+storage/clips
+storage/exports
+storage/recordings
